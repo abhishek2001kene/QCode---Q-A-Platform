@@ -9,7 +9,7 @@ import Model.User;
 
 public class UserDAO {
 
-    // ✅ CREATE USER
+  
     public void saveUser(User user) {
 
         String sql = "INSERT INTO users(name,email,password) VALUES(?,?,?)";
@@ -31,7 +31,7 @@ public class UserDAO {
         }
     }
 
-    // ✅ LOGIN USER
+
     public User login(String email, String password) {
 
         String sql = "SELECT * FROM users WHERE email=? AND password=?";
