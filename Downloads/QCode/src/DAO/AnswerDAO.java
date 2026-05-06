@@ -7,7 +7,7 @@ import Model.Answer;
 
 public class AnswerDAO {
 
-    // ✅ Save Answer
+
     public void saveAnswer(Answer a, int userId, int questionId) {
 
         String sql = "INSERT INTO answers(answer, user_id, question_id) VALUES(?, ?, ?)";
