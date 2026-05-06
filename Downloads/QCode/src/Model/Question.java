@@ -49,7 +49,7 @@ public class Question {
 	}
 	
 	
-	//Question CURD operations 
+
 	public void addAnswer(Answer a) {
 		this.answers.add(a);
 	}
