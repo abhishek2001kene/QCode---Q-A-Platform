@@ -10,7 +10,6 @@ import Model.User;
 
 public class QuestionDAO {
 
-    // ✅ SAVE QUESTION
 public int saveQuestionReturnId(Question q, int userId, boolean isDraft) {
 
     String sql = "INSERT INTO questions(title, user_id, is_draft) VALUES(?, ?, ?)";
@@ -29,7 +28,7 @@ public int saveQuestionReturnId(Question q, int userId, boolean isDraft) {
         ResultSet rs = ps.getGeneratedKeys();
 
         if (rs.next()) {
-            return rs.getInt(1); // ✅ RETURN ID
+            return rs.getInt(1);
         }
 
     } catch (Exception e) {
@@ -40,7 +39,7 @@ public int saveQuestionReturnId(Question q, int userId, boolean isDraft) {
 }
 
 
-    // ✅ FETCH ALL QUESTIONS (with USER NAME using JOIN)
+  
   public void getAllQuestionsWithAnswers() {
 
     String sql = """
@@ -65,13 +64,13 @@ public int saveQuestionReturnId(Question q, int userId, boolean isDraft) {
             String title = rs.getString("title");
             String uname = rs.getString("uname");
 
-            // ✅ Print question ONLY once
+        
             if (qid != currentQid) {
                 System.out.println("\n" + qid + "Q (" + uname + ") " + title);
                 currentQid = qid;
             }
 
-            // ✅ Print answer if exists
+          
             String answer = rs.getString("answer");
             String answerUser = rs.getString("answerUser");
 
@@ -237,7 +236,7 @@ public int saveQuestionReturnId(Question q, int userId, boolean isDraft) {
 	}
   
   
-    // ✅ FETCH QUESTIONS BY USER (for "My Questions")
+  
    public void getQuestionsByUser(int userId) {
 
     String sql = "SELECT * FROM questions WHERE user_id = ? AND is_draft = false";
